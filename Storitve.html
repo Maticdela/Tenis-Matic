@@ -123,12 +123,78 @@
             color: var(--lime);
         }
 
+        /* ===== DROP-DOWN MENI STILI ===== */
+        .dropdown-section {
+            margin-top: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-toggle {
+            display: none;
+        }
+
+        .dropdown-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 1.5rem;
+            background: var(--white);
+            border-radius: 16px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .dropdown-label:hover {
+            border-color: var(--lime);
+            background: #f8f8fc;
+        }
+
+        .dropdown-label .arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--lime);
+        }
+
+        .dropdown-toggle:checked + .dropdown-label .arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 0.5rem;
+        }
+
+        .dropdown-toggle:checked + .dropdown-label + .dropdown-content {
+            max-height: 2000px;
+            padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+        }
+
+        .dropdown-content .services-grid {
+            margin-top: 0;
+        }
+
         @media (max-width: 768px) {
             .services-grid {
                 grid-template-columns: 1fr;
             }
             .category-title {
                 font-size: 1.8rem;
+            }
+            .dropdown-label {
+                font-size: 1.1rem;
+                padding: 1rem;
             }
         }
     </style>
@@ -158,133 +224,147 @@
             <h1 class="section-title">
                 <span class="lime-underline">Storitve</span>
             </h1>
-            <p class="section-subtitle">Preprosto, pregledno in prilagojeno tvojemu ritmu.</p>
+            <p class="section-subtitle">Klikni na kategorijo za več informacij.</p>
 
-            <!-- ========== TRENINGI ========== -->
-            <h2 class="category-title">🎾 Treningi</h2>
-            <p class="category-subtitle">Izberi obliko, ki ti najbolj ustreza.</p>
+            <!-- ========== DROP-DOWN: TRENINGI ========== -->
+            <div class="dropdown-section">
+                <input type="checkbox" id="drop1" class="dropdown-toggle" />
+                <label for="drop1" class="dropdown-label">
+                    <span>🎾 Treningi</span>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dropdown-content">
+                    <div class="services-grid">
 
-            <div class="services-grid">
+                        <!-- Individualni -->
+                        <div class="service-card">
+                            <div class="icon">🎯</div>
+                            <h3>Individualni trening</h3>
+                            <p>1‑na‑1 ure, osredotočene na tvojo igro. Delamo na tehniki, taktiki in mentalnem toku — vse z igrivim pridihom.</p>
+                            <span class="service-tag">20‑30 € / uro</span>
+                            <ul class="service-features">
+                                <li>Prilagojeno tvojemu nivoju</li>
+                                <li>Igre in zabavne vaje</li>
+                                <li>Brez kričanja in pritiska</li>
+                                <li>Lokacija: Tivoli ali Svoboda</li>
+                            </ul>
+                        </div>
 
-                <!-- Individualni -->
-                <div class="service-card">
-                    <div class="icon">🎯</div>
-                    <h3>Individualni trening</h3>
-                    <p>1‑na‑1 ure, osredotočene na tvojo igro. Delamo na tehniki, taktiki in mentalnem toku — vse z igrivim pridihom.</p>
-                    <span class="service-tag">20‑30 € / uro</span>
-                    <ul class="service-features">
-                        <li>Prilagojeno tvojemu nivoju</li>
-                        <li>Igre in zabavne vaje</li>
-                        <li>Brez kričanja in pritiska</li>
-                        <li>Lokacija: Tivoli ali Svoboda</li>
-                    </ul>
+                        <!-- Trening v 2 -->
+                        <div class="service-card">
+                            <div class="icon">👥</div>
+                            <h3>Trening v 2</h3>
+                            <p>Dva igralca, en trener. Odlično za prijatelja, partnerja ali sorojenca. Več igre, več zabave.</p>
+                            <span class="service-tag">15‑20 € / osebo / uro</span>
+                            <ul class="service-features">
+                                <li>Družabno in tekmovalno</li>
+                                <li>Več udarcev na uro</li>
+                                <li>Primerno za vse nivoje</li>
+                                <li>Lokacija: Tivoli ali Svoboda</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trening v skupini (3-4) -->
+                        <div class="service-card">
+                            <div class="icon">👥</div>
+                            <h3>Skupinski trening</h3>
+                            <p>Skupina 3 ali 4 igralcev. Več igre, več smeha, nižja cena na osebo. Idealno za ekipo prijateljev.</p>
+                            <span class="service-tag">10‑15 € / osebo / uro</span>
+                            <ul class="service-features">
+                                <li>Igre in tekme</li>
+                                <li>Družabna dinamika</li>
+                                <li>Primerno za vse nivoje</li>
+                                <li>Lokacija: Tivoli ali Svoboda</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Petek – stena + dobrodelnost -->
+                    <div class="highlight-box" style="margin-top: 0.5rem;">
+                        <strong>📅 Petki – Dan za steno + Dobrodelnost</strong>
+                        <p style="color: rgba(255,255,255,0.85); margin-top: 0.5rem;">
+                            Vsak petek popoldne združujem trening ob steni z dobrodelnim delom.
+                            <strong>Brezplačne ure za otroke iz ranljivih skupin</strong> – ker naj bo tenis za vsakogar.
+                        </p>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem;">
+                            📍 Lokacija: Svoboda · ⏰ Čas: po dogovoru · 🎾 Oprema: na voljo
+                        </p>
+                    </div>
                 </div>
-
-                <!-- Trening v 2 -->
-                <div class="service-card">
-                    <div class="icon">👥</div>
-                    <h3>Trening v 2</h3>
-                    <p>Dva igralca, en trener. Odlično za prijatelja, partnerja ali sorojenca. Več igre, več zabave.</p>
-                    <span class="service-tag">15‑20 € / osebo / uro</span>
-                    <ul class="service-features">
-                        <li>Družabno in tekmovalno</li>
-                        <li>Več udarcev na uro</li>
-                        <li>Primerno za vse nivoje</li>
-                        <li>Lokacija: Tivoli ali Svoboda</li>
-                    </ul>
-                </div>
-
-                <!-- Trening v skupini (3-4) -->
-                <div class="service-card">
-                    <div class="icon">👥</div>
-                    <h3>Skupinski trening</h3>
-                    <p>Skupina 3 ali 4 igralcev. Več igre, več smeha, nižja cena na osebo. Idealno za ekipo prijateljev.</p>
-                    <span class="service-tag">10‑15 € / osebo / uro</span>
-                    <ul class="service-features">
-                        <li>Igre in tekme</li>
-                        <li>Družabna dinamika</li>
-                        <li>Primerno za vse nivoje</li>
-                        <li>Lokacija: Tivoli ali Svoboda</li>
-                    </ul>
-                </div>
-
             </div>
 
-            <!-- Petek – stena + dobrodelnost -->
-            <div class="highlight-box">
-                <strong>📅 Petki – Dan za steno + Dobrodelnost</strong>
-                <p style="color: rgba(255,255,255,0.85); margin-top: 0.5rem;">
-                    Vsak petek popoldne združujem trening ob steni z dobrodelnim delom.
-                    <strong>Brezplačne ure za otroke iz ranljivih skupin</strong> – ker naj bo tenis za vsakogar.
-                </p>
-                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem;">
-                    📍 Lokacija: Svoboda · ⏰ Čas: po dogovoru · 🎾 Oprema: na voljo
-                </p>
-            </div>
+            <!-- ========== DROP-DOWN: TENIS PRIPRAVE ========== -->
+            <div class="dropdown-section">
+                <input type="checkbox" id="drop2" class="dropdown-toggle" />
+                <label for="drop2" class="dropdown-label">
+                    <span>🌊 Tenis priprave</span>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dropdown-content">
+                    <p style="color: var(--text-grey); margin-bottom: 1.5rem;">Pobeg na obalo. Trening + morje + sprostitev.</p>
 
-            <!-- ========== TENIS PRIPRAVE ========== -->
-            <h2 class="category-title" style="margin-top: 3rem;">🌊 Tenis priprave</h2>
-            <p class="category-subtitle">Pobeg na obalo. Trening + morje + sprostitev.</p>
+                    <div class="services-grid">
 
-            <div class="services-grid">
+                        <!-- Vikend paket -->
+                        <div class="service-card">
+                            <div class="icon">🏖️</div>
+                            <h3>Vikend paket</h3>
+                            <p>2‑dnevni izlet na Hrvaško ali v Italijo. Treningi, dobra hrana in popolno sproščanje ob morju.</p>
+                            <span class="service-tag">od 255 € / osebo</span>
+                            <ul class="service-features">
+                                <li>2 dni tenisa na morju</li>
+                                <li>Namestitev vključena</li>
+                                <li>Družabne večerje</li>
+                                <li>Primerno za vse nivoje</li>
+                            </ul>
+                        </div>
 
-                <!-- Vikend paket -->
-                <div class="service-card">
-                    <div class="icon">🏖️</div>
-                    <h3>Vikend paket</h3>
-                    <p>2‑dnevni izlet na Hrvaško ali v Italijo. Treningi, dobra hrana in popolno sproščanje ob morju.</p>
-                    <span class="service-tag">od 255 € / osebo</span>
-                    <ul class="service-features">
-                        <li>2 dni tenisa na morju</li>
-                        <li>Namestitev vključena</li>
-                        <li>Družabne večerje</li>
-                        <li>Primerno za vse nivoje</li>
-                    </ul>
+                        <!-- Podaljšan vikend -->
+                        <div class="service-card">
+                            <div class="icon">🌅</div>
+                            <h3>Podaljšan vikend</h3>
+                            <p>3‑dnevni izlet. Več tenisa, več sprostitve, več užitka. Ob petek začnemo, v ponedeljek se vrnemo.</p>
+                            <span class="service-tag">od 350 € / osebo</span>
+                            <ul class="service-features">
+                                <li>3 dni tenisa na morju</li>
+                                <li>Namestitev vključena</li>
+                                <li>Več treningov in prostega časa</li>
+                                <li>Družabni večeri</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tedenski paket -->
+                        <div class="service-card">
+                            <div class="icon">☀️</div>
+                            <h3>Tedenski paket</h3>
+                            <p>Cel teden na morju. Vsak dan trening, popolna sprostitev in napredek, ki ga boš občutil.</p>
+                            <span class="service-tag">od 650 € / osebo</span>
+                            <ul class="service-features">
+                                <li>5–7 dni tenisa na morju</li>
+                                <li>Namestitev vključena</li>
+                                <li>Vsakodnevni treningi</li>
+                                <li>Popolna sprostitev</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Opomba o dogovoru -->
+                    <div class="price-note">
+                        <p style="font-size: 1.1rem; color: var(--navy); font-weight: 600;">
+                            📅 Tenis priprave – <span style="color: var(--lime); background: var(--navy); padding: 0.1rem 0.5rem; border-radius: 8px;">dogovor vsaj 1 mesec vnaprej</span>
+                        </p>
+                        <p style="color: var(--text-grey); margin-top: 0.5rem;">
+                            Za vikend, podaljšan vikend ali tedenski paket me kontaktiraj vsaj 1 mesec pred želenim terminom.
+                            Skupaj izberemo destinacijo in prilagodimo program.
+                        </p>
+                    </div>
                 </div>
-
-                <!-- Podaljšan vikend -->
-                <div class="service-card">
-                    <div class="icon">🌅</div>
-                    <h3>Podaljšan vikend</h3>
-                    <p>3‑dnevni izlet. Več tenisa, več sprostitve, več užitka. Ob petek začnemo, v ponedeljek se vrnemo.</p>
-                    <span class="service-tag">od 350 € / osebo</span>
-                    <ul class="service-features">
-                        <li>3 dni tenisa na morju</li>
-                        <li>Namestitev vključena</li>
-                        <li>Več treningov in prostega časa</li>
-                        <li>Družabni večeri</li>
-                    </ul>
-                </div>
-
-                <!-- Tedenski paket -->
-                <div class="service-card">
-                    <div class="icon">☀️</div>
-                    <h3>Tedenski paket</h3>
-                    <p>Cel teden na morju. Vsak dan trening, popolna sprostitev in napredek, ki ga boš občutil.</p>
-                    <span class="service-tag">od 650 € / osebo</span>
-                    <ul class="service-features">
-                        <li>5–7 dni tenisa na morju</li>
-                        <li>Namestitev vključena</li>
-                        <li>Vsakodnevni treningi</li>
-                        <li>Popolna sprostitev</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <!-- Opomba o dogovoru -->
-            <div class="price-note">
-                <p style="font-size: 1.1rem; color: var(--navy); font-weight: 600;">
-                    📅 Tenis priprave – <span style="color: var(--lime); background: var(--navy); padding: 0.1rem 0.5rem; border-radius: 8px;">dogovor vsaj 1 mesec vnaprej</span>
-                </p>
-                <p style="color: var(--text-grey); margin-top: 0.5rem;">
-                    Za vikend, podaljšan vikend ali tedenski paket me kontaktiraj vsaj 1 mesec pred želenim terminom.
-                    Skupaj izberemo destinacijo in prilagodimo program.
-                </p>
             </div>
 
             <!-- Prva ura brezplačna -->
-            <div class="price-note" style="border-left-color: var(--lime); margin-top: 1rem;">
+            <div class="price-note" style="border-left-color: var(--lime); margin-top: 2rem;">
                 <p style="font-size: 1.1rem; color: var(--navy); font-weight: 600;">
                     🎾 Prva ura je <span style="color: var(--lime); background: var(--navy); padding: 0.1rem 0.5rem; border-radius: 8px;">brezplačna</span> za nove igralce!
                 </p>
