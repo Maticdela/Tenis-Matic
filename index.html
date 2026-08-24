@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tennis Coach · Game‑based & stress‑free</title>
+
+    <!-- Google Font for a clean, friendly look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ----- CSS Variables (your brand colours) ----- */
+        :root {
+            --navy: #02006C;
+            --lime: #AFFF00;
+            --white: #FFFFFF;
+            --light-bg: #F7F7FA;   /* very soft grey for sections */
+            --text-dark: #1E1E2A;
+            --text-grey: #4A4A5A;
+        }
+
+        /* ----- Reset & base ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ----- Header / Navigation ----- */
+        header {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 12px rgba(2, 0, 108, 0.15);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo span {
+            color: var(--lime);
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            /* replace with your actual logo image later */
+            background-color: var(--lime);
+            border-radius: 6px;
+            display: inline-block;
+            padding: 0 10px;
+            line-height: 40px;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        nav a:hover {
+            color: var(--lime);
+            border-bottom-color: var(--lime);
+        }
+
+        .cta-nav {
+            background-color: var(--lime);
+            color: var(--navy);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            border-bottom: none !important;
+        }
+        .cta-nav:hover {
+            background-color: #8fcc00;
+            color: var(--navy) !important;
+            border-bottom: none !important;
+        }
+
+        /* ----- Buttons ----- */
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--lime);
+            color: var(--navy);
+            font-weight: 600;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #8fcc00;
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--navy);
+            font-weight: 600;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            border: 2px solid var(--navy);
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        /* ----- Hero ----- */
+        .hero {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, var(--white) 0%, #f0f2ff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .highlight {
+            color: var(--lime);
+            background: var(--navy);
+            padding: 0 0.2rem;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-grey);
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+
+        .hero-image {
+            background-color: var(--navy);
+            border-radius: 20px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            background-image: url('https://placehold.co/600x400/02006C/FFFFFF?text=Your+Photo+Here');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Replace the background-image with your own photo later */
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ----- Sections ----- */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-grey);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title .lime-underline {
+            display: inline-block;
+            border-bottom: 4px solid var(--lime);
+            padding-bottom: 4px;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: var(--text-grey);
+        }
+
+        .about-text strong {
+            color: var(--navy);
+        }
+
+        .about-image {
+            background-color: #e9e9f0;
+            border-radius: 20px;
+            height: 220px;
+            background-image: url('https://placehold.co/500x300/02006C/FFFFFF?text=You+on+court');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 24px rgba(2, 0, 108, 0.06);
+            border: 1px solid rgba(2, 0, 108, 0.05);
+            transition: transform 0.2s;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+        }
+
+        .service-card .icon {
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-tag {
+            display: inline-block;
+            background: var(--lime);
+            color: var(--navy);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 1.8rem;
+            border-radius: 20px;
+            border-left: 6px solid var(--lime);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: var(--text-dark);
+        }
+
+        .testimonial .author {
+            font-weight: 600;
+            color: var(--navy);
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
+        /* Contact / Booking */
+        .contact-box {
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 30px;
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box p {
+            opacity: 0.85;
+            max-width: 500px;
+            margin-bottom: 1.8rem;
+        }
+
+        .contact-box .btn-primary {
+            background: var(--lime);
+            color: var(--navy);
+            font-size: 1.1rem;
+            padding: 0.9rem 3rem;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+        .contact-info a {
+            color: var(--white);
+            border-bottom: 1px dotted rgba(255,255,255,0.3);
+        }
+        .contact-info a:hover {
+            border-bottom-color: var(--lime);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0b1a;
+            color: rgba(255,255,255,0.7);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links {
+            margin-top: 0.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        footer .footer-links a {
+            color: rgba(255,255,255,0.6);
+        }
+        footer .footer-links a:hover {
+            color: var(--lime);
+        }
+
+        /* ----- Responsive ----- */
+        @media (max-width: 768px) {
+            .hero-grid, .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            nav a {
+                margin: 0 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-image {
+                height: 200px;
+            }
+
+            .contact-box {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn-primary, .btn-outline {
+                padding: 0.6rem 1.6rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span class="logo-img">🎾</span>
+                <span>Coach<span>.</span></span>
+                <!-- Replace the emoji with your actual logo image:
+                <img src="your-logo.svg" alt="Logo" class="logo-img" style="background:none; height:40px;" />
+                -->
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact" class="cta-nav">Book now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <h1>
+                    Tennis coaching that’s<br />
+                    <span class="highlight">fun</span>, not stressful.
+                </h1>
+                <p>
+                    Game‑based approach · no yelling · real progress · <br />
+                    because tennis should be your escape, not your job.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Start playing</a>
+                    <a href="#about" class="btn-outline">Learn more</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Replace the placeholder with your own photo -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about">
+        <div class="container about-grid">
+            <div>
+                <h2 class="section-title">
+                    <span class="lime-underline">Hi, I’m your coach</span>
+                </h2>
+                <p class="section-subtitle" style="margin-bottom:1rem;">
+                    I’ve been coaching for 1.5 years in Ljubljana, and my players love the game‑based,
+                    encouraging style.
+                </p>
+                <div class="about-text">
+                    <p>
+                        <strong>I don’t yell.</strong> I create a space where you can forget about your
+                        busy life and just enjoy the rally. My sessions are built around games,
+                        laughter, and steady improvement — whether you’re a beginner or a weekend warrior.
+                    </p>
+                    <p style="margin-top:1.2rem;">
+                        Based at <strong>Tivoli &amp; Svoboda</strong>, I coach early mornings and late
+                        afternoons (because Ljubljana summers are hot!). I also run <strong>weekend trips</strong>
+                        to Croatia and Italy, and offer free sessions for underprivileged kids.
+                    </p>
+                </div>
+            </div>
+            <div class="about-image">
+                <!-- Replace with your own photo -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section id="services" style="background: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lime-underline">What I offer</span>
+            </h2>
+            <p class="section-subtitle">Simple, transparent, and tailored to your rhythm.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">🎯</div>
+                    <h3>Private coaching</h3>
+                    <p>1‑on‑1 sessions focused on your game. We’ll work on technique, tactics, and
+                    mental flow — all with a game‑based twist.</p>
+                    <span class="service-tag">€20‑30 / hour</span>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🌊</div>
+                    <h3>Tennis weekends</h3>
+                    <p>Escape to the Adriatic. 2‑day trips to Croatia or Italy with coaching,
+                    good food, and total relaxation. Accommodation included.</p>
+                    <span class="service-tag">from €255 / person</span>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">❤️</div>
+                    <h3>Free kids’ sessions</h3>
+                    <p>Every Thursday and Friday I offer free coaching for underprivileged children
+                    in Ljubljana. Because tennis should be for everyone.</p>
+                    <span class="service-tag">no charge</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lime-underline">What players say</span>
+            </h2>
+            <p class="section-subtitle">Real words from real people.</p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>“I actually look forward to training now. No pressure, just good vibes and
+                    I’m improving faster than ever.”</p>
+                    <div class="author">— Marko, 34</div>
+                </div>
+                <div class="testimonial">
+                    <p>“The weekend trip to Croatia was amazing. Two days of tennis, beach, and
+                    great company. Already booked the next one.”</p>
+                    <div class="author">— Ana, 28</div>
+                </div>
+                <div class="testimonial">
+                    <p>“I’ve had coaches who shout. This is completely different — encouraging,
+                    playful, and I actually want to come back.”</p>
+                    <div class="author">— Jure, 42</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT / BOOKING ========== -->
+    <section id="contact" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Let’s hit the court</h2>
+                <p>
+                    Book a session or ask about my weekend trips. I’ll get back to you within a few hours.
+                </p>
+                <a href="#" class="btn-primary">📅 Book now (Calendly)</a>
+                <!-- Replace the "#" with your Calendly link -->
+
+                <div class="contact-info">
+                    <span>📱 <a href="tel:+38640123456">+386 40 123 456</a></span>
+                    <span>✉️ <a href="mailto:coach@example.com">coach@example.com</a></span>
+                    <span>📍 Tivoli &amp; Svoboda, Ljubljana</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 · Tennis Coach Ljubljana</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="#" style="color: var(--lime);">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
