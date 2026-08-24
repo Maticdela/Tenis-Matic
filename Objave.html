@@ -6,24 +6,99 @@
     <title>Tenis-Matic · Objave</title>
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for Objave.html */
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+            border-radius: 24px;
+        }
+
+        .coming-soon .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon h2 {
+            color: var(--navy);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .coming-soon p {
+            color: var(--text-grey);
+            margin-top: 0.5rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 24px rgba(2, 0, 108, 0.06);
+            border: 1px solid rgba(2, 0, 108, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .blog-card .date {
+            color: var(--text-grey);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--lime);
+            display: inline-block;
+            padding-bottom: 0.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+        }
+
+        .blog-card .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--navy);
+            font-weight: 600;
+            border-bottom: 2px solid var(--lime);
+        }
+    </style>
 </head>
 <body>
 
     <header>
-    <div class="container header-inner">
-        <div class="logo">
-            <a href="index.html" style="display: block; line-height: 0; position: relative; z-index: 999;">
-                <img src="logo.png" alt="Tenis-Matic" class="logo-img" />
-            </a>
-        </div>
-        <nav>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html" style="display: block; line-height: 0; position: relative; z-index: 999;">
+                    <img src="logo.png" alt="Tenis-Matic" class="logo-img" />
+                </a>
+            </div>
+            <nav>
                 <a href="index.html">Domov</a>
                 <a href="O_meni.html">O meni</a>
                 <a href="Storitve.html">Storitve</a>
                 <a href="Objave.html" class="active">Objave</a>
-                <a href="index.html#contact" class="cta-nav">Rezerviraj</a>
+                <a href="https://calendly.com/matic-drempeticsp" class="cta-nav">Rezerviraj</a>
             </nav>
         </div>
     </header>
@@ -44,7 +119,7 @@
                     zgodbe z teniških igrišč!
                 </p>
                 <p style="margin-top:1rem; font-size:0.9rem; color:var(--text-grey);">
-                    Če imaš vprašanje, me <a href="index.html#contact" style="color:var(--navy); font-weight:600; border-bottom:2px solid var(--lime);">kontaktiraj</a>.
+                    Če imaš vprašanje, me <a href="https://calendly.com/matic-drempeticsp" style="color:var(--navy); font-weight:600; border-bottom:2px solid var(--lime);">kontaktiraj</a>.
                 </p>
             </div>
 
@@ -82,7 +157,7 @@
                 <a href="O_meni.html">O meni</a>
                 <a href="Storitve.html">Storitve</a>
                 <a href="Objave.html">Objave</a>
-                <a href="index.html#contact">Kontakt</a>
+                <a href="https://calendly.com/matic-drempeticsp">Kontakt</a>
                 <a href="#" style="color: var(--lime);">Zasebnost</a>
             </div>
         </div>
