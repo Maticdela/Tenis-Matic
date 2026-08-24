@@ -5,21 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tenis-Matic · Storitve</title>
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
 
-   <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* Additional styles for Storitve.html */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 24px rgba(2, 0, 108, 0.06);
+            border: 1px solid rgba(2, 0, 108, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(2, 0, 108, 0.12);
+        }
+
+        .service-card .icon {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Dokdo', cursive;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+        }
+
+        .service-tag {
+            display: inline-block;
+            background: var(--lime);
+            color: var(--navy);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 0.8rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1rem;
+            padding: 0;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li::before {
+            content: "✓ ";
+            color: var(--lime);
+            font-weight: 700;
+        }
+
+        .price-note {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            border-left: 5px solid var(--lime);
+        }
+
+        .category-title {
+            font-family: 'Dokdo', cursive;
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-top: 3rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 3px solid var(--lime);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        .category-subtitle {
+            color: var(--text-grey);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+            border-left: 5px solid var(--lime);
+        }
+
+        .highlight-box strong {
+            color: var(--lime);
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-    <div class="container header-inner">
-        <div class="logo">
-            <a href="index.html" style="display: block; line-height: 0; position: relative; z-index: 999;">
-                <img src="logo.png" alt="Tenis-Matic" class="logo-img" />
-            </a>
-        </div>
-        <nav>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html" style="display: block; line-height: 0; position: relative; z-index: 999;">
+                    <img src="logo.png" alt="Tenis-Matic" class="logo-img" />
+                </a>
+            </div>
+            <nav>
                 <a href="index.html">Domov</a>
                 <a href="O_meni.html">O meni</a>
                 <a href="Storitve.html" class="active">Storitve</a>
@@ -31,19 +152,23 @@
 
     <section>
         <div class="container">
+
             <h1 class="section-title">
                 <span class="lime-underline">Storitve</span>
             </h1>
             <p class="section-subtitle">Preprosto, pregledno in prilagojeno tvojemu ritmu.</p>
 
+            <!-- ========== TRENINGI ========== -->
+            <h2 class="category-title">🎾 Treningi</h2>
+            <p class="category-subtitle">Izberi obliko, ki ti najbolj ustreza.</p>
+
             <div class="services-grid">
 
-                <!-- Individualni trening -->
+                <!-- Individualni -->
                 <div class="service-card">
                     <div class="icon">🎯</div>
                     <h3>Individualni trening</h3>
-                    <p>1‑na‑1 ure, osredotočene na tvojo igro. Delali bomo na tehniki, taktiki in
-                    mentalnem toku — vse z igrivim pridihom.</p>
+                    <p>1‑na‑1 ure, osredotočene na tvojo igro. Delamo na tehniki, taktiki in mentalnem toku — vse z igrivim pridihom.</p>
                     <span class="service-tag">20‑30 € / uro</span>
                     <ul class="service-features">
                         <li>Prilagojeno tvojemu nivoju</li>
@@ -53,12 +178,59 @@
                     </ul>
                 </div>
 
-                <!-- Tenis vikendi -->
-                <div class="service-card" id="vikendi">
-                    <div class="icon">🌊</div>
-                    <h3>Tenis vikendi</h3>
-                    <p>Pobeg na obalo. 2‑dnevni izleti na Hrvaško ali v Italijo s treningi,
-                    dobro hrano in popolnim sproščanjem.</p>
+                <!-- Trening v 2 -->
+                <div class="service-card">
+                    <div class="icon">👥</div>
+                    <h3>Trening v 2</h3>
+                    <p>Dva igralca, en trener. Odlično za prijatelja, partnerja ali sorojenca. Več igre, več zabave.</p>
+                    <span class="service-tag">15‑20 € / osebo / uro</span>
+                    <ul class="service-features">
+                        <li>Družabno in tekmovalno</li>
+                        <li>Več udarcev na uro</li>
+                        <li>Primerno za vse nivoje</li>
+                        <li>Lokacija: Tivoli ali Svoboda</li>
+                    </ul>
+                </div>
+
+                <!-- Trening v skupini (3-4) -->
+                <div class="service-card">
+                    <div class="icon">👥</div>
+                    <h3>Skupinski trening</h3>
+                    <p>Skupina 3 ali 4 igralcev. Več igre, več smeha, nižja cena na osebo. Idealno za ekipo prijateljev.</p>
+                    <span class="service-tag">10‑15 € / osebo / uro</span>
+                    <ul class="service-features">
+                        <li>Igre in tekme</li>
+                        <li>Družabna dinamika</li>
+                        <li>Primerno za vse nivoje</li>
+                        <li>Lokacija: Tivoli ali Svoboda</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Petek – stena + dobrodelnost -->
+            <div class="highlight-box">
+                <strong>📅 Petki – Dan za steno + Dobrodelnost</strong>
+                <p style="color: rgba(255,255,255,0.85); margin-top: 0.5rem;">
+                    Vsak petek popoldne združujem trening ob steni z dobrodelnim delom.
+                    <strong>Brezplačne ure za otroke iz ranljivih skupin</strong> – ker naj bo tenis za vsakogar.
+                </p>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem;">
+                    📍 Lokacija: Svoboda · ⏰ Čas: po dogovoru · 🎾 Oprema: na voljo
+                </p>
+            </div>
+
+            <!-- ========== TENIS PRIPRAVE ========== -->
+            <h2 class="category-title" style="margin-top: 3rem;">🌊 Tenis priprave</h2>
+            <p class="category-subtitle">Pobeg na obalo. Trening + morje + sprostitev.</p>
+
+            <div class="services-grid">
+
+                <!-- Vikend paket -->
+                <div class="service-card">
+                    <div class="icon">🏖️</div>
+                    <h3>Vikend paket</h3>
+                    <p>2‑dnevni izlet na Hrvaško ali v Italijo. Treningi, dobra hrana in popolno sproščanje ob morju.</p>
                     <span class="service-tag">od 255 € / osebo</span>
                     <ul class="service-features">
                         <li>2 dni tenisa na morju</li>
@@ -68,31 +240,57 @@
                     </ul>
                 </div>
 
-                <!-- Brezplačne ure za otroke -->
+                <!-- Podaljšan vikend -->
                 <div class="service-card">
-                    <div class="icon">❤️</div>
-                    <h3>Brezplačne ure za otroke</h3>
-                    <p>Vsak četrtek in petek ponujam brezplačne treninge za otroke iz ranljivih skupin
-                    v Ljubljani. Ker naj bo tenis za vsakogar.</p>
-                    <span class="service-tag">brezplačno</span>
+                    <div class="icon">🌅</div>
+                    <h3>Podaljšan vikend</h3>
+                    <p>3‑dnevni izlet. Več tenisa, več sprostitve, več užitka. Ob petek začnemo, v ponedeljek se vrnemo.</p>
+                    <span class="service-tag">od 350 € / osebo</span>
                     <ul class="service-features">
-                        <li>Vsak četrtek in petek</li>
-                        <li>Otroci iz ranljivih skupin</li>
-                        <li>Igre in zabava</li>
-                        <li>Vsa oprema na voljo</li>
+                        <li>3 dni tenisa na morju</li>
+                        <li>Namestitev vključena</li>
+                        <li>Več treningov in prostega časa</li>
+                        <li>Družabni večeri</li>
+                    </ul>
+                </div>
+
+                <!-- Tedenski paket -->
+                <div class="service-card">
+                    <div class="icon">☀️</div>
+                    <h3>Tedenski paket</h3>
+                    <p>Cel teden na morju. Vsak dan trening, popolna sprostitev in napredek, ki ga boš občutil.</p>
+                    <span class="service-tag">od 650 € / osebo</span>
+                    <ul class="service-features">
+                        <li>5–7 dni tenisa na morju</li>
+                        <li>Namestitev vključena</li>
+                        <li>Vsakodnevni treningi</li>
+                        <li>Popolna sprostitev</li>
                     </ul>
                 </div>
 
             </div>
 
+            <!-- Opomba o dogovoru -->
             <div class="price-note">
-                <p style="font-size:1.1rem; color:var(--navy); font-weight:600;">
-                    📅 Prva ura je <span style="color:var(--lime); background:var(--navy); padding:0.1rem 0.5rem; border-radius:8px;">brezplačna</span> za nove igralce!
+                <p style="font-size: 1.1rem; color: var(--navy); font-weight: 600;">
+                    📅 Tenis priprave – <span style="color: var(--lime); background: var(--navy); padding: 0.1rem 0.5rem; border-radius: 8px;">dogovor vsaj 1 mesec vnaprej</span>
                 </p>
-                <p style="color:var(--text-grey); margin-top:0.5rem;">
+                <p style="color: var(--text-grey); margin-top: 0.5rem;">
+                    Za vikend, podaljšan vikend ali tedenski paket me kontaktiraj vsaj 1 mesec pred želenim terminom.
+                    Skupaj izberemo destinacijo in prilagodimo program.
+                </p>
+            </div>
+
+            <!-- Prva ura brezplačna -->
+            <div class="price-note" style="border-left-color: var(--lime); margin-top: 1rem;">
+                <p style="font-size: 1.1rem; color: var(--navy); font-weight: 600;">
+                    🎾 Prva ura je <span style="color: var(--lime); background: var(--navy); padding: 0.1rem 0.5rem; border-radius: 8px;">brezplačna</span> za nove igralce!
+                </p>
+                <p style="color: var(--text-grey); margin-top: 0.5rem;">
                     Preizkusi moj pristop brez obveznosti.
                 </p>
             </div>
+
         </div>
     </section>
 
