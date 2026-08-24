@@ -5,21 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tenis-Matic · O meni</title>
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* Additional styles just for O_meni.html */
+        .about-full {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .about-full-text {
+            font-size: 1.05rem;
+            color: var(--text-grey);
+        }
+
+        .about-full-text strong {
+            color: var(--navy);
+        }
+
+        .about-full-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .about-full-image {
+            background-color: #e9e9f0;
+            border-radius: 20px;
+            height: 400px;
+            background-image: url('https://placehold.co/600x500/02006C/FFFFFF?text=Matic+%F0%9F%8E%BE');
+            background-size: cover;
+            background-position: center;
+            border: 4px solid var(--lime);
+            box-shadow: 0 12px 40px rgba(2, 0, 108, 0.15);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 1.8rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border-left: 5px solid var(--lime);
+            box-shadow: 0 4px 16px rgba(2, 0, 108, 0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 30px rgba(2, 0, 108, 0.12);
+        }
+
+        .value-card .icon {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card h4 {
+            color: var(--navy);
+            font-family: 'Dokdo', cursive;
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .value-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+        }
+
+        .about-full-text h1 {
+            font-family: 'Dokdo', cursive;
+            font-size: 3rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-highlight {
+            background: var(--lime);
+            color: var(--navy);
+            padding: 0.1rem 0.5rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .fun-fact {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+            border-left: 5px solid var(--lime);
+        }
+
+        .fun-fact strong {
+            color: var(--navy);
+        }
+
+        @media (max-width: 768px) {
+            .about-full {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .about-full-image {
+                height: 220px;
+            }
+            .about-full-text h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-    <div class="container header-inner">
-        <div class="logo">
-            <a href="index.html" style="display: block; line-height: 0; position: relative; z-index: 999;">
-                <img src="logo.png" alt="Tenis-Matic" class="logo-img" />
-            </a>
-        </div>
-        <nav>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html" style="display: block; line-height: 0; position: relative; z-index: 999;">
+                    <img src="logo.png" alt="Tenis-Matic" class="logo-img" />
+                </a>
+            </div>
+            <nav>
                 <a href="index.html">Domov</a>
                 <a href="O_meni.html" class="active">O meni</a>
                 <a href="Storitve.html">Storitve</a>
@@ -29,42 +143,58 @@
         </div>
     </header>
 
-    <section>
+    <section style="padding-top: 2rem;">
         <div class="container">
-            <h1 class="section-title">
-                <span class="lime-underline">O meni</span>
-            </h1>
 
             <div class="about-full">
                 <div class="about-full-text">
+                    <h1>Živjo, <span class="intro-highlight">jaz sem Matic</span></h1>
+
                     <p>
-                        <strong>Živjo, jaz sem Matic.</strong> 
+                        <strong>Tenis je moja strast</strong> že od malih nog. Po letih igranja sem se odločil,
+                        da svoje znanje prenesem naprej kot trener.
                     </p>
+
                     <p>
                         <strong>Zakaj sem drugačen?</strong> Ker verjamem, da je tenis zabava, ne obveznost.
                         Moje ure temeljijo na igrah, smehu in stalnem napredku. <strong>Ne kričim</strong>
                         in ne pritiskam. Ustvarjam prostor, kjer lahko pozabiš na vsakodnevne skrbi in
                         uživaš v igri.
                     </p>
+
                     <p>
                         Treniram že 1,5 leti v Ljubljani, na <strong>Tivoliju in Svobodi</strong>.
                         Moji igralci prihajajo iz vseh starostnih skupin – od začetnikov do vikend
                         igralcev, ki si želijo izboljšati svojo igro.
                     </p>
-                    <p>
+
+                    <div class="fun-fact">
+                        <strong>🎾 Zanimivost:</strong> Moji igralci pravijo, da so treningi najboljši
+                        del njihovega tedna. In to je tisto, kar me najbolj veseli!
+                    </div>
+
+                    <p style="margin-top: 1.5rem;">
                         Poleg individualnih treningov organiziram tudi <strong>vikend izlete</strong>
                         na Hrvaško in v Italijo ter ponujam <strong>brezplačne ure</strong> za otroke
                         iz ranljivih skupin.
                     </p>
-                    <a href="Storitve.html" class="btn-primary" style="margin-top:1rem;">Poglej storitve</a>
+
+                    <a href="Storitve.html" class="btn-primary" style="margin-top: 0.5rem;">👉 Poglej storitve</a>
                 </div>
+
                 <div class="about-full-image">
-                    <!-- Replace with your own photo -->
-¸                </div>
+                    <!-- Zamenjaj placeholder s svojo fotografijo -->
+                </div>
             </div>
 
             <!-- Values -->
-            <h3 style="font-size:1.5rem; color:var(--navy); margin-top:3rem; margin-bottom:1rem;">Moje vrednote</h3>
+            <h3 style="font-family: 'Dokdo', cursive; font-size: 2.2rem; color: var(--navy); margin-top: 3rem; margin-bottom: 0.5rem; text-align: center;">
+                Moje vrednote
+            </h3>
+            <p style="text-align: center; color: var(--text-grey); margin-bottom: 2rem;">
+                Načela, po katerih treniram in živim.
+            </p>
+
             <div class="values-grid">
                 <div class="value-card">
                     <div class="icon">🎯</div>
@@ -87,6 +217,7 @@
                     <p>Tenis za vsakogar, ne glede na okoliščine.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
