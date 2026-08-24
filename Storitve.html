@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tenis-Matic · Storitve</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --navy: #02006C;
+            --lime: #AFFF00;
+            --white: #FFFFFF;
+            --light-bg: #F7F7FA;
+            --text-dark: #1E1E2A;
+            --text-grey: #4A4A5A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 12px rgba(2, 0, 108, 0.15);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        nav a {
+            color: var(--white);
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        nav a:hover {
+            color: var(--lime);
+            border-bottom-color: var(--lime);
+        }
+
+        nav a.active {
+            color: var(--lime);
+            border-bottom-color: var(--lime);
+        }
+
+        .cta-nav {
+            background-color: var(--lime);
+            color: var(--navy);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            border-bottom: none !important;
+        }
+        .cta-nav:hover {
+            background-color: #8fcc00;
+            color: var(--navy) !important;
+            border-bottom: none !important;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--lime);
+            color: var(--navy);
+            font-weight: 600;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #8fcc00;
+            transform: scale(1.02);
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-grey);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title .lime-underline {
+            display: inline-block;
+            border-bottom: 4px solid var(--lime);
+            padding-bottom: 4px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 24px rgba(2, 0, 108, 0.06);
+            border: 1px solid rgba(2, 0, 108, 0.05);
+            transition: transform 0.2s;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .service-card .icon {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+        }
+
+        .service-tag {
+            display: inline-block;
+            background: var(--lime);
+            color: var(--navy);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1rem;
+            padding: 0;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li::before {
+            content: "✓ ";
+            color: var(--lime);
+            font-weight: 700;
+        }
+
+        footer {
+            background-color: #0b0b1a;
+            color: rgba(255,255,255,0.7);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links {
+            margin-top: 0.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        footer .footer-links a {
+            color: rgba(255,255,255,0.6);
+        }
+        footer .footer-links a:hover {
+            color: var(--lime);
+        }
+
+        .price-note {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            border-left: 4px solid var(--lime);
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            nav a {
+                margin: 0 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <img src="logo.png" alt="Tenis-Matic" class="logo-img" />
+            </div>
+            <nav>
+                <a href="index.html">Domov</a>
+                <a href="O_meni.html">O meni</a>
+                <a href="Storitve.html" class="active">Storitve</a>
+                <a href="Objave.html">Objave</a>
+                <a href="index.html#contact" class="cta-nav">Rezerviraj</a>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h1 class="section-title">
+                <span class="lime-underline">Storitve</span>
+            </h1>
+            <p class="section-subtitle">Preprosto, pregledno in prilagojeno tvojemu ritmu.</p>
+
+            <div class="services-grid">
+
+                <!-- Individualni trening -->
+                <div class="service-card">
+                    <div class="icon">🎯</div>
+                    <h3>Individualni trening</h3>
+                    <p>1‑na‑1 ure, osredotočene na tvojo igro. Delali bomo na tehniki, taktiki in
+                    mentalnem toku — vse z igrivim pridihom.</p>
+                    <span class="service-tag">20‑30 € / uro</span>
+                    <ul class="service-features">
+                        <li>Prilagojeno tvojemu nivoju</li>
+                        <li>Igre in zabavne vaje</li>
+                        <li>Brez kričanja in pritiska</li>
+                        <li>Lokacija: Tivoli ali Svoboda</li>
+                    </ul>
+                </div>
+
+                <!-- Tenis vikendi -->
+                <div class="service-card" id="vikendi">
+                    <div class="icon">🌊</div>
+                    <h3>Tenis vikendi</h3>
+                    <p>Pobeg na obalo. 2‑dnevni izleti na Hrvaško ali v Italijo s treningi,
+                    dobro hrano in popolnim sproščanjem.</p>
+                    <span class="service-tag">od 255 € / osebo</span>
+                    <ul class="service-features">
+                        <li>2 dni tenisa na morju</li>
+                        <li>Namestitev vključena</li>
+                        <li>Družabne večerje</li>
+                        <li>Primerno za vse nivoje</li>
+                    </ul>
+                </div>
+
+                <!-- Brezplačne ure za otroke -->
+                <div class="service-card">
+                    <div class="icon">❤️</div>
+                    <h3>Brezplačne ure za otroke</h3>
+                    <p>Vsak četrtek in petek ponujam brezplačne treninge za otroke iz ranljivih skupin
+                    v Ljubljani. Ker naj bo tenis za vsakogar.</p>
+                    <span class="service-tag">brezplačno</span>
+                    <ul class="service-features">
+                        <li>Vsak četrtek in petek</li>
+                        <li>Otroci iz ranljivih skupin</li>
+                        <li>Igre in zabava</li>
+                        <li>Vsa oprema na voljo</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="price-note">
+                <p style="font-size:1.1rem; color:var(--navy); font-weight:600;">
+                    📅 Prva ura je <span style="color:var(--lime); background:var(--navy); padding:0.1rem 0.5rem; border-radius:8px;">brezplačna</span> za nove igralce!
+                </p>
+                <p style="color:var(--text-grey); margin-top:0.5rem;">
+                    Preizkusi moj pristop brez obveznosti.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 · Tenis-Matic</p>
+            <div class="footer-links">
+                <a href="index.html">Domov</a>
+                <a href="O_meni.html">O meni</a>
+                <a href="Storitve.html">Storitve</a>
+                <a href="Objave.html">Objave</a>
+                <a href="index.html#contact">Kontakt</a>
+                <a href="#" style="color: var(--lime);">Zasebnost</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tenis-Matic</title>
+    <title>Tenis-Matic · Domov</title>
     <link rel="icon" type="image/png" href="favicon.png" />
 
-    <!-- Google Font for a clean, friendly look -->
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
 
     <style>
-        /* ----- CSS Variables (your brand colours) ----- */
+        /* ----- CSS Variables ----- */
         :root {
             --navy: #02006C;
             --lime: #AFFF00;
             --white: #FFFFFF;
-            --light-bg: #F7F7FA;   /* very soft grey for sections */
+            --light-bg: #F7F7FA;
             --text-dark: #1E1E2A;
             --text-grey: #4A4A5A;
         }
 
-        /* ----- Reset & base ----- */
         * {
             margin: 0;
             padding: 0;
@@ -45,11 +44,11 @@
             padding: 0 1.5rem;
         }
 
-        /* ----- Header / Navigation ----- */
+        /* ----- Header ----- */
         header {
             background-color: var(--navy);
             color: var(--white);
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 10;
@@ -63,21 +62,8 @@
             flex-wrap: wrap;
         }
 
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .logo span {
-            color: var(--lime);
-        }
-
         .logo-img {
-            height: 100px;
+            height: 60px;
             width: auto;
             display: inline-block;
             vertical-align: middle;
@@ -94,6 +80,11 @@
         }
 
         nav a:hover {
+            color: var(--lime);
+            border-bottom-color: var(--lime);
+        }
+
+        nav a.active {
             color: var(--lime);
             border-bottom-color: var(--lime);
         }
@@ -145,65 +136,92 @@
             color: var(--white);
         }
 
-        /* ----- Hero ----- */
+        /* ----- Hero / Slideshow ----- */
         .hero {
-            padding: 4rem 0 3rem;
+            padding: 3rem 0 2rem;
             background: linear-gradient(135deg, var(--white) 0%, #f0f2ff 100%);
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(2, 0, 108, 0.12);
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 .highlight {
-            color: var(--lime);
+        .slide {
+            display: none;
+            padding: 3rem 4rem;
+            min-height: 320px;
             background: var(--navy);
-            padding: 0 0.2rem;
-            display: inline-block;
+            color: var(--white);
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-grey);
-            margin-bottom: 2rem;
-            max-width: 90%;
+        .slide.active {
+            display: flex;
         }
 
-        .hero-image {
-            background-color: var(--navy);
-            border-radius: 20px;
-            height: 280px;
+        .slide-content {
+            flex: 1;
+        }
+
+        .slide-content h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--lime);
+        }
+
+        .slide-content p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+        }
+
+        .slide-image {
+            flex: 0 0 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            background-image: url('https://placehold.co/600x400/02006C/FFFFFF?text=Your+Photo+Here');
-            background-size: cover;
-            background-position: center;
+            font-size: 4rem;
         }
-        /* Replace the background-image with your own photo later */
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+        /* Slide navigation dots */
+        .dots-container {
+            text-align: center;
+            padding: 1rem 0 0.5rem;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 6px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--navy);
+        }
+
+        .dot:hover {
+            background-color: var(--lime);
         }
 
         /* ----- Sections ----- */
         section {
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
         .section-title {
@@ -216,7 +234,7 @@
         .section-subtitle {
             color: var(--text-grey);
             font-size: 1.1rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .section-title .lime-underline {
@@ -225,106 +243,33 @@
             padding-bottom: 4px;
         }
 
-        /* About */
-        .about-grid {
+        /* About preview */
+        .about-preview {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
 
-        .about-text {
+        .about-preview-text {
             font-size: 1.05rem;
             color: var(--text-grey);
         }
 
-        .about-text strong {
+        .about-preview-text strong {
             color: var(--navy);
         }
 
-        .about-image {
+        .about-preview-image {
             background-color: #e9e9f0;
             border-radius: 20px;
             height: 220px;
-            background-image: url('https://placehold.co/500x300/02006C/FFFFFF?text=You+on+court');
+            background-image: url('https://placehold.co/500x300/02006C/FFFFFF?text=Tvoj+foto');
             background-size: cover;
             background-position: center;
         }
 
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 8px 24px rgba(2, 0, 108, 0.06);
-            border: 1px solid rgba(2, 0, 108, 0.05);
-            transition: transform 0.2s;
-        }
-        .service-card:hover {
-            transform: translateY(-6px);
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-card p {
-            color: var(--text-grey);
-            font-size: 0.95rem;
-        }
-
-        .service-card .icon {
-            font-size: 2.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-tag {
-            display: inline-block;
-            background: var(--lime);
-            color: var(--navy);
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-top: 0.8rem;
-        }
-
-        /* Testimonials */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial {
-            background: var(--white);
-            padding: 1.8rem;
-            border-radius: 20px;
-            border-left: 6px solid var(--lime);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-        }
-
-        .testimonial p {
-            font-style: italic;
-            color: var(--text-dark);
-        }
-
-        .testimonial .author {
-            font-weight: 600;
-            color: var(--navy);
-            margin-top: 1rem;
-            font-style: normal;
-        }
-
-        /* Contact / Booking */
+        /* Contact */
         .contact-box {
             background: var(--navy);
             color: var(--white);
@@ -395,13 +340,9 @@
 
         /* ----- Responsive ----- */
         @media (max-width: 768px) {
-            .hero-grid, .about-grid {
+            .about-preview {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
             }
 
             .header-inner {
@@ -414,21 +355,41 @@
                 font-size: 0.9rem;
             }
 
-            .hero-image {
-                height: 200px;
+            .slide {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+                min-height: auto;
+            }
+
+            .slide-content p {
+                max-width: 100%;
+            }
+
+            .slide-image {
+                flex: 0 0 120px;
+                height: 120px;
+                width: 120px;
+                font-size: 3rem;
+            }
+
+            .slide-content h2 {
+                font-size: 1.8rem;
             }
 
             .contact-box {
                 padding: 2rem 1.5rem;
             }
+
+            .contact-info {
+                gap: 1rem;
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 1rem;
+            .slide-content h2 {
+                font-size: 1.5rem;
             }
             .btn-primary, .btn-outline {
                 padding: 0.6rem 1.6rem;
@@ -443,148 +404,108 @@
     <header>
         <div class="container header-inner">
             <div class="logo">
-                <img src="logo.png" alt="Tenis-Matic Logo" class="logo-img" />
+                <img src="logo.png" alt="Tenis-Matic" class="logo-img" />
             </div>
             <nav>
-                <a href="#about">O meni</a>
-                <a href="#services">Storitve</a>
-                <a href="#testimonials">Mnenja</a>
+                <a href="index.html" class="active">Domov</a>
+                <a href="O_meni.html">O meni</a>
+                <a href="Storitve.html">Storitve</a>
+                <a href="Objave.html">Objave</a>
                 <a href="#contact" class="cta-nav">Rezerviraj</a>
             </nav>
         </div>
     </header>
 
-    <!-- ========== HERO ========== -->
+    <!-- ========== SLIDESHOW ========== -->
     <section class="hero">
-        <div class="container hero-grid">
-            <div>
-                <h1>
-                    Tenis trening, ki je<br />
-                    <span class="highlight">zabaven</span>, ne stresen.
-                </h1>
-                <p>
-                    Igra kot osnova · brez kričanja · pravi napredek · <br />
-                    ker naj bo tenis tvoj oddih, ne služba.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">Začni igrati</a>
-                    <a href="#about" class="btn-outline">Več o meni</a>
+        <div class="container">
+            <div class="slideshow-container">
+
+                <!-- Slide 1 -->
+                <div class="slide active" id="slide1">
+                    <div class="slide-content">
+                        <h2>Zabaven tenis brez stresa</h2>
+                        <p>Igre, smeh in napredek. Pozabi na vsakodnevne skrbi in uživaj v igri.</p>
+                        <a href="Storitve.html" class="btn-primary">Več o storitvah →</a>
+                    </div>
+                    <div class="slide-image">🎾</div>
                 </div>
+
+                <!-- Slide 2 -->
+                <div class="slide" id="slide2">
+                    <div class="slide-content">
+                        <h2>Tenis vikendi na Hrvaškem</h2>
+                        <p>Pobeg na obalo. Dva dneva tenisa, dobre hrane in popolnega sproščanja.</p>
+                        <a href="Storitve.html#vikendi" class="btn-primary">Razišči →</a>
+                    </div>
+                    <div class="slide-image">🌊</div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide" id="slide3">
+                    <div class="slide-content">
+                        <h2>Tenis za vse</h2>
+                        <p>Brezplačne ure za otroke iz ranljivih skupin. Ker naj bo tenis za vsakogar.</p>
+                        <a href="O_meni.html" class="btn-primary">Spoznaj mojo zgodbo →</a>
+                    </div>
+                    <div class="slide-image">❤️</div>
+                </div>
+
             </div>
-            <div class="hero-image">
-                <!-- Replace the placeholder with your own photo -->
+
+            <!-- Dots -->
+            <div class="dots-container">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
             </div>
         </div>
     </section>
 
-    <!-- ========== ABOUT ========== -->
+    <!-- ========== ABOUT PREVIEW ========== -->
     <section id="about">
-        <div class="container about-grid">
-            <div>
-                <h2 class="section-title">
-                    <span class="lime-underline">Živjo, jaz sem tvoj trener</span>
-                </h2>
-                <p class="section-subtitle" style="margin-bottom:1rem;">
-                    Treniram že 1,5 leti v Ljubljani in moji igralci obožujejo moj pristop, ki temelji na igri
-                    in spodbujanju.
-                </p>
-                <div class="about-text">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lime-underline">Kdo sem</span>
+            </h2>
+            <p class="section-subtitle">Trener, ki verjame, da je tenis zabava, ne obveznost.</p>
+
+            <div class="about-preview">
+                <div class="about-preview-text">
                     <p>
-                        <strong>Ne kričim.</strong> Ustvarjam prostor, kjer lahko pozabiš na vsakodnevne skrbi
-                        in uživaš v igri. Moje ure temeljijo na igrah, smehu in stalnem napredku — ne glede na to,
-                        ali si začetnik ali vikend igralec.
+                        <strong>Živjo, jaz sem Matic.</strong> Treniram že 1,5 leti v Ljubljani in moji
+                        igralci obožujejo moj pristop, ki temelji na igri in spodbujanju.
                     </p>
-                    <p style="margin-top:1.2rem;">
-                        Delujem na <strong>Tivoliju in Svobodi</strong>, treniram zgodaj zjutraj in pozno
-                        popoldne (ker so ljubljanska poletja vroča!). Prav tako organiziram <strong>vikend izlete</strong>
-                        na Hrvaško in v Italijo ter ponujam brezplačne ure za otroke iz ranljivih skupin.
+                    <p style="margin-top:1rem;">
+                        <strong>Ne kričim.</strong> Ustvarjam prostor, kjer lahko pozabiš na vsakodnevne
+                        skrbi in uživaš v tenisu. Delujem na Tivoliju in Svobodi.
                     </p>
+                    <p style="margin-top:1rem;">
+                        Organiziram tudi <strong>vikend izlete</strong> na Hrvaško in v Italijo ter
+                        ponujam <strong>brezplačne ure</strong> za otroke iz ranljivih skupin.
+                    </p>
+                    <a href="O_meni.html" style="display:inline-block; margin-top:1.5rem; color:var(--navy); font-weight:600; border-bottom:2px solid var(--lime);">Preberi več →</a>
                 </div>
-            </div>
-            <div class="about-image">
-                <!-- Replace with your own photo -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== SERVICES ========== -->
-    <section id="services" style="background: var(--light-bg);">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="lime-underline">Kaj ponujam</span>
-            </h2>
-            <p class="section-subtitle">Preprosto, pregledno in prilagojeno tvojemu ritmu.</p>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon">🎯</div>
-                    <h3>Individualni trening</h3>
-                    <p>1‑na‑1 ure, osredotočene na tvojo igro. Delali bomo na tehniki, taktiki in
-                    mentalnem toku — vse z igrivim pridihom.</p>
-                    <span class="service-tag">20‑30 € / uro</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon">🌊</div>
-                    <h3>Tenis vikendi</h3>
-                    <p>Pobeg na obalo. 2‑dnevni izleti na Hrvaško ali v Italijo s treningi,
-                    dobro hrano in popolnim sproščanjem. Namestitev vključena.</p>
-                    <span class="service-tag">od 255 € / osebo</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon">❤️</div>
-                    <h3>Brezplačne ure za otroke</h3>
-                    <p>Vsak četrtek in petek ponujam brezplačne treninge za otroke iz ranljivih skupin
-                    v Ljubljani. Ker naj bo tenis za vsakogar.</p>
-                    <span class="service-tag">brezplačno</span>
+                <div class="about-preview-image">
+                    <!-- Replace with your own photo -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== TESTIMONIALS ========== -->
-    <section id="testimonials">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="lime-underline">Kaj pravijo igralci</span>
-            </h2>
-            <p class="section-subtitle">Resnične besede resničnih ljudi.</p>
-
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <p>"Zdaj se res veselim treningov. Brez pritiska, samo dobra energija in
-                    napredujem hitreje kot kdaj koli prej."</p>
-                    <div class="author">— Marko, 34</div>
-                </div>
-                <div class="testimonial">
-                    <p>"Vikend izlet na Hrvaško je bil neverjeten. Dva dni tenisa, plaže in
-                    odlične družbe. Naslednjega sem že rezerviral."</p>
-                    <div class="author">— Ana, 28</div>
-                </div>
-                <div class="testimonial">
-                    <p>"Imel sem trenerje, ki kričijo. To je popolnoma drugače — spodbujanje,
-                    igrivo in res se želim vračati."</p>
-                    <div class="author">— Jure, 42</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== CONTACT / BOOKING ========== -->
+    <!-- ========== CONTACT ========== -->
     <section id="contact" style="background: var(--light-bg);">
         <div class="container">
             <div class="contact-box">
                 <h2>Pridi na igrišče</h2>
                 <p>
-                    Rezerviraj uro ali vprašaj o mojih vikend izletih. Odgovorim v nekaj urah.
+                    Rezerviraj uro ali vprašaj o vikend izletih. Odgovorim v nekaj urah.
                 </p>
                 <a href="#" class="btn-primary">📅 Rezerviraj (Calendly)</a>
-                <!-- Replace the "#" with your Calendly link -->
 
                 <div class="contact-info">
                     <span>📱 <a href="tel:+38640123456">+386 40 123 456</a></span>
-                    <span>✉️ <a href="mailto:coach@example.com">coach@example.com</a></span>
+                    <span>✉️ <a href="mailto:info@tenis-matic.si">info@tenis-matic.si</a></span>
                     <span>📍 Tivoli &amp; Svoboda, Ljubljana</span>
                 </div>
             </div>
@@ -594,15 +515,63 @@
     <!-- ========== FOOTER ========== -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 · Tenis trening Ljubljana</p>
+            <p>&copy; 2026 · Tenis-Matic</p>
             <div class="footer-links">
-                <a href="#about">O meni</a>
-                <a href="#services">Storitve</a>
+                <a href="index.html">Domov</a>
+                <a href="O_meni.html">O meni</a>
+                <a href="Storitve.html">Storitve</a>
+                <a href="Objave.html">Objave</a>
                 <a href="#contact">Kontakt</a>
                 <a href="#" style="color: var(--lime);">Zasebnost</a>
             </div>
         </div>
     </footer>
+
+    <!-- ========== JAVASCRIPT FOR SLIDESHOW ========== -->
+    <script>
+        let slideIndex = 1;
+        let autoSlideTimer;
+
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+        }
+
+        function currentSlide(n) {
+            clearInterval(autoSlideTimer);
+            slideIndex = n;
+            showSlide(slideIndex);
+            startAutoSlide();
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+
+        function startAutoSlide() {
+            autoSlideTimer = setInterval(function() {
+                slideIndex++;
+                showSlide(slideIndex);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        // Start automatic slideshow
+        startAutoSlide();
+    </script>
 
 </body>
 </html>
