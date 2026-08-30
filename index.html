@@ -6,9 +6,172 @@
     <title>Tenis-Matic · Domov</title>
     <link rel="icon" type="image/png" href="favicon.png" />
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* ===== HERO WITH BACKGROUND IMAGE ===== */
+        .hero-image-section {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            min-height: 500px;
+            background-image: url('https://placehold.co/1200x800/02006C/FFFFFF?text=Matic+%F0%9F%8E%BE+tenis');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            text-align: left;
+            color: var(--white);
+        }
+
+        .hero-image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 0, 108, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--lime);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content .btn-primary {
+            font-size: 1.1rem;
+            padding: 0.9rem 3rem;
+            box-shadow: 0 4px 20px rgba(175, 255, 0, 0.3);
+        }
+
+        /* ===== ABOUT PREVIEW ===== */
+        .about-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-preview-text {
+            font-size: 1.05rem;
+            color: var(--text-grey);
+        }
+
+        .about-preview-text strong {
+            color: var(--navy);
+        }
+
+        .about-preview-text h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-preview-text .lime-underline {
+            display: inline-block;
+            border-bottom: 4px solid var(--lime);
+            padding-bottom: 4px;
+        }
+
+        .about-preview-image {
+            background-color: #e9e9f0;
+            border-radius: 20px;
+            height: 300px;
+            background-image: url('https://placehold.co/600x400/02006C/FFFFFF?text=Matic+na+igri%C5%A1%C4%8Du');
+            background-size: cover;
+            background-position: center;
+            border: 4px solid var(--lime);
+            box-shadow: 0 12px 40px rgba(2, 0, 108, 0.15);
+        }
+
+        .btn-outline-dark {
+            display: inline-block;
+            background: transparent;
+            color: var(--navy);
+            font-weight: 700;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            border: 2px solid var(--navy);
+            transition: 0.2s;
+            margin-top: 1rem;
+        }
+
+        .btn-outline-dark:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-image-section {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about-preview {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-preview-image {
+                height: 220px;
+            }
+
+            .about-preview-text h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .btn-primary {
+                padding: 0.7rem 1.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -25,71 +188,37 @@
                 <a href="O_meni.html">O meni</a>
                 <a href="Storitve.html">Storitve</a>
                 <a href="Objave.html">Objave</a>
-                <a href="https://calendly.com/matic-drempeticsp" class="cta-nav">Rezerviraj</a>
+                
             </nav>
         </div>
     </header>
 
-    <!-- ========== SLIDESHOW ========== -->
-    <section class="hero">
-        <div class="container">
-            <div class="slideshow-container">
-
-                <!-- Slide 1 -->
-                <div class="slide active" id="slide1">
-                    <div class="slide-content">
-                        <h2>Individualni in skupinski treningi</h2>
-                        <p> Prilagojeni treningi vašim željam in sposobnostim.</p>
-                        <a href="Storitve.html" class="btn-primary">Več o storitvah →</a>
-                    </div>
-                    <div class="slide-image">🎾</div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="slide" id="slide2">
-                    <div class="slide-content">
-                        <h2>Teniške priprave na morju</h2>
-                        <p>Pobeg na obalo. Dva do tri dneva tenisa, dobre hrane in popolnega sproščanja.</p>
-                        <a href="Storitve.html#vikendi" class="btn-primary">Razišči →</a>
-                    </div>
-                    <div class="slide-image">🌊</div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="slide" id="slide3">
-                    <div class="slide-content">
-                        <h2>Moje objave</h2>
-                        <p></p>
-                        <a href="O_meni.html" class="btn-primary">Spoznaj mojo zgodbo →</a>
-                    </div>
-                    <div class="slide-image">❤️</div>
-                </div>
-
-            </div>
-
-            <!-- Dots -->
-            <div class="dots-container">
-                <span class="dot active" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
+    <!-- ========== HERO IMAGE SECTION ========== -->
+    <section class="hero-image-section">
+        <div class="hero-content">
+            <h1>Matic <span class="highlight">Drempetič</span></h1>
+            <p>Tenis trener v Ljubljani.</p>
+            <a href="Storitve.html" class="btn-primary">Poglej več →</a>
         </div>
     </section>
 
     <!-- ========== ABOUT PREVIEW ========== -->
-    <section id="about">
+    <section id="about" style="padding: 4rem 0;">
         <div class="container">
-            <h2 class="section-title">
-                <span class="lime-underline">Kdo sem</span>
-            </h2>
-            <p class="section-subtitle">.</p>
-
             <div class="about-preview">
                 <div class="about-preview-text">
-                    <p>
-                        
+                    <h2>
+                        <span class="lime-underline">Tenis v Ljubljani </span>
+                    </h2>
+                    <p style="font-size: 1.1rem; color: var(--text-grey); margin-top: 0.5rem;">
+                        <strong>  </strong> 
                     </p>
-                    <a href="O_meni.html" style="display:inline-block; margin-top:1.5rem; color:var(--navy); font-weight:600; border-bottom:2px solid var(--lime);">Preberi več →</a>
+                        <strong>Če potrebujete trenerja tenisa v Ljubljani, klikni spodaj</strong>
+                    </p>
+                    </p>
+                        <strong></strong>
+                    </p>
+                    <a href="O_meni.html" class="btn-outline-dark">Več o meni →</a>
                 </div>
                 <div class="about-preview-image">
                     <!-- Replace with your own photo -->
@@ -99,17 +228,17 @@
     </section>
 
     <!-- ========== CONTACT ========== -->
-    <section id="contact" style="background: var(--light-bg);">
+    <section id="contact" style="background: var(--light-bg); padding: 4rem 0;">
         <div class="container">
             <div class="contact-box">
                 <h2>Pridi na igrišče</h2>
                 <p>
-                    Rezerviraj uro ali vprašaj o vikend izletih. Odgovorim v nekaj urah.
+                    Kontaktirajte me!
                 </p>
                 <a href="https://calendly.com/matic-drempeticsp" class="btn-primary">📅 Rezerviraj</a>
 
                 <div class="contact-info">
-                    <span>📱 <a href="tel:+38640123456">+386 40 123 456</a></span>
+                    <span>📱 <a href="tel:+38640123456">+386 40 188 985</a></span>
                     <span>✉️ <a href="mailto:info@tenis-matic.si">info@tenis-matic.si</a></span>
                     <span>📍 Tivoli &amp; Svoboda, Ljubljana</span>
                 </div>
@@ -131,52 +260,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- ========== JAVASCRIPT FOR SLIDESHOW ========== -->
-    <script>
-        let slideIndex = 1;
-        let autoSlideTimer;
-
-        function showSlide(n) {
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
-
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-
-            slides[slideIndex - 1].classList.add("active");
-            dots[slideIndex - 1].classList.add("active");
-        }
-
-        function currentSlide(n) {
-            clearInterval(autoSlideTimer);
-            slideIndex = n;
-            showSlide(slideIndex);
-            startAutoSlide();
-        }
-
-        function nextSlide() {
-            slideIndex++;
-            showSlide(slideIndex);
-        }
-
-        function startAutoSlide() {
-            autoSlideTimer = setInterval(function() {
-                slideIndex++;
-                showSlide(slideIndex);
-            }, 5000); // Change slide every 5 seconds
-        }
-
-        // Start automatic slideshow
-        startAutoSlide();
-    </script>
 
 </body>
 </html>

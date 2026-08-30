@@ -61,7 +61,7 @@
         nav a {
             color: var(--white);
             margin-left: 2rem;
-            font-weight: 500;
+            font-weight: 700;
             font-size: 0.95rem;
             transition: color 0.2s;
             border-bottom: 2px solid transparent;
@@ -127,7 +127,7 @@
 
         /* ----- Hero / Slideshow ----- */
         .hero {
-            padding: 3rem 0 2rem;
+            padding: 0rem 0 2rem;
             background: linear-gradient(135deg, var(--white) 0%, #f0f2ff 100%);
         }
 
